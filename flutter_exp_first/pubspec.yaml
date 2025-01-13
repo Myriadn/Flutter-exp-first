@@ -1,5 +1,5 @@
 name: flutter_exp_first
-description: "A new Flutter project."
+description: "ngetest Flutter iseng iseng ajah"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -74,15 +74,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
- fonts:
-    - family: Staatliches
-      fonts:
-         - asset: fonts/Staatliches-Regular.ttf
+fonts:
+  - family: Staatliches
+    fonts:
+      - asset: fonts/Staatliches-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-     - family: Oxygen
-       fonts:
-         - asset: fonts/Oxygen-Regular.ttf
+  - family: Oxygen
+    fonts:
+      - asset: fonts/Oxygen-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
