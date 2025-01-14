@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mas Jamil Explorer List',
+      title: 'Myriadn Finished Game',
       theme: ThemeData(),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }

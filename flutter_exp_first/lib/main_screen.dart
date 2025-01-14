@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exp_first/detail_screen.dart';
-import 'package:flutter_exp_first/model/tourism_place.dart';
+import 'package:flutter_exp_first/model/game_list.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -9,16 +9,16 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mas Jamil Explorer List'),
+        title: const Text('List Finished Games'),
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth <= 600) {
-            return const TourismPlaceList();
+            return const GameFinishedList();
           } else if (constraints.maxWidth <= 1200) {
-            return const TourismPlaceGrid(gridCount: 4);
+            return const GameFinishedGrid(gridCount: 4);
           } else {
-            return const TourismPlaceGrid(gridCount: 6);
+            return const GameFinishedGrid(gridCount: 6);
           }
         },
       ),
@@ -26,20 +26,20 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class TourismPlaceGrid extends StatelessWidget {
+class GameFinishedGrid extends StatelessWidget {
   final int gridCount;
 
-  const TourismPlaceGrid({super.key, required this.gridCount});
+  const GameFinishedGrid({super.key, required this.gridCount});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(24.0),
       child: GridView.count(
         crossAxisCount: gridCount,
-        crossAxisSpacing: 16,
+        crossAxisSpacing: 2,
         mainAxisSpacing: 16,
-        children: tourismPlaceList.map((place) {
+        children: gameFinishedList.map((place) {
           return InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -51,10 +51,7 @@ class TourismPlaceGrid extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
-                    child: Image.asset(
-                      place.imageAsset,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.asset(place.imageAsset, fit: BoxFit.scaleDown),
                   ),
                   const SizedBox(height: 8),
                   Padding(
@@ -70,7 +67,7 @@ class TourismPlaceGrid extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
                     child: Text(
-                      place.location,
+                      place.platform,
                     ),
                   ),
                 ],
@@ -83,14 +80,14 @@ class TourismPlaceGrid extends StatelessWidget {
   }
 }
 
-class TourismPlaceList extends StatelessWidget {
-  const TourismPlaceList({super.key});
+class GameFinishedList extends StatelessWidget {
+  const GameFinishedList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        final TourismPlace place = tourismPlaceList[index];
+        final GameFinished place = gameFinishedList[index];
         return InkWell(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -119,7 +116,7 @@ class TourismPlaceList extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        Text(place.location),
+                        Text(place.platform),
                       ],
                     ),
                   ),
@@ -129,7 +126,7 @@ class TourismPlaceList extends StatelessWidget {
           ),
         );
       },
-      itemCount: tourismPlaceList.length,
+      itemCount: gameFinishedList.length,
     );
   }
 }
